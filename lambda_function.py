@@ -1,5 +1,6 @@
 import json
 import boto3
+boto3.setup_default_session(region_name='us-east-1') 
 from botocore.exceptions import ClientError
 
 cognito_client = boto3.client('cognito-idp')
@@ -7,6 +8,7 @@ cognito_client = boto3.client('cognito-idp')
 USER_POOL_ID = 'us-east-1_3RzbSvzQU'
 CLIENT_ID = '1qlrfcahr8adusjngigqfuieip'
 
+#verifica CPF
 def verify_cpf_format(cpf: str) -> bool:
     return len(cpf) == 11 and cpf.isdigit()
 
