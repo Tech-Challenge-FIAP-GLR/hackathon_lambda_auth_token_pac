@@ -61,6 +61,7 @@ def lambda_handler(event, context):
                     'NEW_PASSWORD': pwd
                 }
             )
+            print(token)
             token = challenge_response.get("AuthenticationResult", {}).get("AccessToken")
         else:
             token = response.get("AuthenticationResult", {}).get("AccessToken")
