@@ -1,12 +1,14 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import json
+import boto3
 from lambda_function import lambda_handler, verify_cpf_format
 
 class TestLambdaFunction(unittest.TestCase):
 
     def setUp(self):
         self.context = {}
+        self.cognito_client = boto3.client('cognito-idp', region_name='us-east-1')
 
     def test_verify_cpf_format_valid(self):
         self.assertTrue(verify_cpf_format("12345678901"))

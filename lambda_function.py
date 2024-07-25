@@ -1,5 +1,6 @@
 import json
 import boto3
+boto3.setup_default_session(region_name='us-east-1') 
 from botocore.exceptions import ClientError
 
 cognito_client = boto3.client('cognito-idp')
