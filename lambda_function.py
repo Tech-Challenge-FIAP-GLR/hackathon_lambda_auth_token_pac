@@ -8,7 +8,7 @@ cognito_client = boto3.client('cognito-idp')
 USER_POOL_ID = 'us-east-1_3RzbSvzQU'
 CLIENT_ID = '1qlrfcahr8adusjngigqfuieip'
 
-#verifica CPF
+#teste esteira
 def verify_cpf_format(cpf: str) -> bool:
     return len(cpf) == 11 and cpf.isdigit()
 

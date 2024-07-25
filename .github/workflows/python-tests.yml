@@ -1,4 +1,4 @@
-name: Lambda Test
+name: Lambda Test 
 
 on:
   pull_request:
