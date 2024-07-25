@@ -37,6 +37,12 @@ jobs:
         coverage run -m unittest discover -s tests
         coverage xml
 
+    - name: Install SonarQube Scanner
+      run: |
+        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+        unzip sonar-scanner-cli-4.7.0.2747-linux.zip
+        export PATH=$PATH:$(pwd)/sonar-scanner-4.7.0.2747-linux/bin
+
     - name: Run SonarQube Scanner
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
