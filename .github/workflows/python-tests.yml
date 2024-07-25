@@ -53,5 +53,5 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: https://sonarcloud.io
-        SONAR_PROJECT_KEY: my_project
-        SONAR_ORGANIZATION: my_organization
+        SONAR_PROJECT_KEY: Tech-Challenge-FIAP-GLR_hackathon_lambda_auth_token_pac
+        SONAR_ORGANIZATION: tech-challenge-fiap-glr
