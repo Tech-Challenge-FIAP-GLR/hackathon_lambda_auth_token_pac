@@ -34,31 +34,16 @@ jobs:
       env:
         AWS_DEFAULT_REGION: 'us-east-1'
       run: |
-        python -m unittest discover -s tests
-
-    - name: Set up SonarQube
-      uses: sonarsource/sonarqube-scan-action@v1.0.0
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      with:
-        args: >
-          -Dsonar.projectKey=Tech-Challenge-FIAP-GLR_hackathon_lambda_auth_token_pac
-          -Dsonar.organization=tech-challenge-fiap-glr
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-          -Dsonar.python.coverage.reportPaths=coverage.xml
-
-    - name: Generate coverage report
-      run: |
-        pip install coverage
         coverage run -m unittest discover -s tests
         coverage xml
 
     - name: Run SonarQube Scanner
-      run: |
-        sonar-scanner
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: https://sonarcloud.io
-        SONAR_PROJECT_KEY: Tech-Challenge-FIAP-GLR_hackathon_lambda_auth_token_pac
-        SONAR_ORGANIZATION: tech-challenge-fiap-glr
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      run: |
+        sonar-scanner \
+          -Dsonar.projectKey=Tech-Challenge-FIAP-GLR_hackathon_lambda_auth_token_pac \
+          -Dsonar.organization=tech-challenge-fiap-glr \
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+          -Dsonar.python.coverage.reportPaths=coverage.xml
