@@ -6,7 +6,7 @@ Esse componente serve para autenticar os usuários do perfil de paciente e retor
 A requisição é feita via API Gateway e retorna um token JWT.
 
 ## Auth
-**Endpoint:** *https://*****pikwe9lct4.execute-api.us-east-1.amazonaws.com/prod/token/paciente*<br />
+**Endpoint:** *https://pikwe9lct4.execute-api.us-east-1.amazonaws.com/prod/token/paciente*<br />
 **Método:** *GET*
 
 **Request Example:** 
